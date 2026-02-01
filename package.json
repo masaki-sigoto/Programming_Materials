@@ -1,0 +1,27 @@
+{
+    "name": "programming-materials",
+    "version": "1.0.0",
+    "description": "小学生向けプログラミング学習教材 - WordPress自動デプロイ対応",
+    "scripts": {
+        "deploy": "node scripts/deploy-to-wordpress.js",
+        "test": "echo \"No tests yet\"",
+        "lint": "echo \"No linting configured yet\""
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/masaki-sigoto/Programming_Materials.git"
+    },
+    "keywords": [
+        "programming",
+        "education",
+        "wordpress",
+        "automation"
+    ],
+    "author": "Masaki",
+    "license": "MIT",
+    "engines": {
+        "node": ">=18.0.0"
+    },
+    "devDependencies": {},
+    "dependencies": {}
+}

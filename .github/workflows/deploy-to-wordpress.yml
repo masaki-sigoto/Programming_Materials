@@ -1,0 +1,62 @@
+name: Deploy to WordPress
+
+# トリガー: mainブランチへのプッシュ時
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'articles/**'
+      - 'pages/**'
+      - 'images/**'
+
+# 環境変数
+env:
+  NODE_VERSION: '18'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy Content to WordPress
+
+    steps:
+      # 1. リポジトリのチェックアウト
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2  # 変更ファイル検出のため
+
+      # 2. Node.js セットアップ
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      # 3. 依存関係インストール
+      - name: Install Dependencies
+        run: npm ci
+
+      # 4. 変更されたファイルを検出
+      - name: Get Changed Files
+        id: changed-files
+        run: |
+          echo "files=$(git diff --name-only HEAD^ HEAD | grep -E '^(articles|pages|images)/' | tr '\n' ' ')" >> $GITHUB_OUTPUT
+
+      # 5. WordPressにデプロイ
+      - name: Deploy to WordPress
+        if: steps.changed-files.outputs.files != ''
+        env:
+          WP_URL: ${{ secrets.WP_URL }}
+          WP_USERNAME: ${{ secrets.WP_USERNAME }}
+          WP_PASSWORD: ${{ secrets.WP_PASSWORD }}
+        run: |
+          node scripts/deploy-to-wordpress.js "${{ steps.changed-files.outputs.files }}"
+
+      # 6. デプロイ結果を通知
+      - name: Deployment Summary
+        if: always()
+        run: |
+          echo "### Deployment Summary" >> $GITHUB_STEP_SUMMARY
+          echo "- Changed files: ${{ steps.changed-files.outputs.files }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Status: ${{ job.status }}" >> $GITHUB_STEP_SUMMARY

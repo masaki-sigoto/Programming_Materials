@@ -1,0 +1,105 @@
+<!-- WordPress固定ページ用 iframe埋め込みコード -->
+<!-- このコード全体をコピーして、WordPressのカスタムHTMLブロックに貼り付けてください -->
+
+<style>
+    /* iframeコンテナのスタイル */
+    .programming-guide-container {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 0;
+        background: #ffffff;
+    }
+
+    /* iframe本体 */
+    .programming-guide-iframe {
+        width: 100%;
+        min-height: 3000px;
+        border: none;
+        display: block;
+        overflow: hidden;
+    }
+
+    /* レスポンシブ対応 */
+    @media (max-width: 768px) {
+        .programming-guide-iframe {
+            min-height: 4000px;
+            /* モバイルは縦長になるため高さを増やす */
+        }
+    }
+
+    /* ローディング表示 */
+    .iframe-loading {
+        text-align: center;
+        padding: 40px;
+        color: #6b7280;
+        font-size: 1rem;
+    }
+
+    .iframe-loading::before {
+        content: '📚 ';
+        font-size: 2rem;
+        display: block;
+        margin-bottom: 10px;
+    }
+</style>
+
+<div class="programming-guide-container">
+    <!-- ローディング表示（iframe読み込み中に表示） -->
+    <div class="iframe-loading" id="loading-message">
+        コンテンツを読み込んでいます...
+    </div>
+
+    <!-- iframe本体 -->
+    <iframe class="programming-guide-iframe" src="https://masaki-sigoto.github.io/Programming_Materials/"
+        frameborder="0" scrolling="auto" title="プログラミング学習ガイド"
+        onload="document.getElementById('loading-message').style.display='none';">
+        <p>お使いのブラウザはiframeに対応していません。
+            <a href="https://masaki-sigoto.github.io/Programming_Materials/" target="_blank">こちらから直接ご覧ください</a>。
+        </p>
+    </iframe>
+</div>
+
+<script>
+    // iframeの高さを自動調整（オプション機能）
+    // 注: クロスオリジンのため完全な自動調整は制限される場合があります
+    (function () {
+        var iframe = document.querySelector('.programming-guide-iframe');
+
+        // ローディング完了時の処理
+        iframe.addEventListener('load', function () {
+            console.log('プログラミングガイドの読み込みが完了しました');
+
+            // 最小高さを設定（コンテンツが表示されるまでの暫定）
+            iframe.style.height = '3000px';
+        });
+
+        // メッセージイベントリスナー（iframeから高さ情報を受け取る場合）
+        window.addEventListener('message', function (event) {
+            // セキュリティチェック: GitHub Pagesからのメッセージのみ受け入れ
+            if (event.origin !== 'https://masaki-sigoto.github.io') {
+                return;
+            }
+
+            // 高さ情報を受け取った場合
+            if (event.data && event.data.height) {
+                iframe.style.height = event.data.height + 'px';
+            }
+        });
+    })();
+</script>
+
+<!--
+使用方法:
+1. WordPressにログイン
+2. 固定ページ → 新規追加
+3. タイトル: 「プログラミング学習ガイド」など
+4. ブロック追加 → 「カスタムHTML」を選択
+5. 上記のコード全体をコピー&ペースト
+6. 公開
+
+注意事項:
+- このコードはWordPressのカスタムHTMLブロック専用です
+- テーマによっては追加のCSSカスタマイズが必要な場合があります
+- モバイルでの表示を確認してください
+-->

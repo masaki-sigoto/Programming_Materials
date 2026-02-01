@@ -31,19 +31,14 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: 'npm'
 
-      # 3. 依存関係インストール
-      - name: Install Dependencies
-        run: npm ci
-
-      # 4. 変更されたファイルを検出
+      # 3. 変更されたファイルを検出
       - name: Get Changed Files
         id: changed-files
         run: |
           echo "files=$(git diff --name-only HEAD^ HEAD | grep -E '^(articles|pages|images)/' | tr '\n' ' ')" >> $GITHUB_OUTPUT
 
-      # 5. WordPressにデプロイ
+      # 4. WordPressにデプロイ
       - name: Deploy to WordPress
         if: steps.changed-files.outputs.files != ''
         env:
@@ -53,7 +48,7 @@ jobs:
         run: |
           node scripts/deploy-to-wordpress.js "${{ steps.changed-files.outputs.files }}"
 
-      # 6. デプロイ結果を通知
+      # 5. デプロイ結果を通知
       - name: Deployment Summary
         if: always()
         run: |

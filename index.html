@@ -1454,6 +1454,124 @@
             color: #5b21b6;
         }
 
+        /* 統合スキルテーブル */
+        .skills-integration-table {
+            margin: 30px 0;
+            overflow-x: auto;
+        }
+
+        .skills-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .skills-table thead {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+        }
+
+        .skills-table th {
+            padding: 18px 15px;
+            text-align: left;
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        .skills-table tbody tr {
+            border-bottom: 1px solid #e5e7eb;
+            transition: background 0.2s ease;
+        }
+
+        .skills-table tbody tr:last-child {
+            border-bottom: none;
+        }
+
+        .skills-table tbody tr:hover {
+            background: #f0f9ff;
+        }
+
+        .skills-table td {
+            padding: 20px 15px;
+            vertical-align: top;
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        .skills-table .skill-name {
+            font-weight: 700;
+            color: #047857;
+            font-size: 1rem;
+            white-space: nowrap;
+        }
+
+        .skills-table .skill-desc {
+            color: #475569;
+        }
+
+        .skills-table .change-note {
+            display: block;
+            margin-top: 8px;
+            color: #0369a1;
+            font-size: 0.85rem;
+            font-style: italic;
+        }
+
+        .skills-table .skill-unique {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            padding: 12px;
+            border-radius: 8px;
+            color: #78350f;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .skills-table .skill-future {
+            color: #6b21a8;
+            line-height: 1.9;
+        }
+
+        @media (max-width: 640px) {
+            .skills-table thead {
+                display: none;
+            }
+
+            .skills-table,
+            .skills-table tbody,
+            .skills-table tr,
+            .skills-table td {
+                display: block;
+                width: 100%;
+            }
+
+            .skills-table tr {
+                margin-bottom: 20px;
+                border: 2px solid #e5e7eb;
+                border-radius: 12px;
+                overflow: hidden;
+            }
+
+            .skills-table td {
+                padding: 15px;
+                border-bottom: 1px solid #f3f4f6;
+            }
+
+            .skills-table td:last-child {
+                border-bottom: none;
+            }
+
+            .skills-table td::before {
+                content: attr(data-label);
+                font-weight: 700;
+                color: #047857;
+                display: block;
+                margin-bottom: 5px;
+            }
+        }
+
         .timeline-section {
             background: linear-gradient(135deg, #fdf4ff 0%, #fae8ff 100%);
             border-radius: 20px;
@@ -2042,14 +2160,15 @@
             left: 30px;
             top: 0;
             bottom: 0;
-            width: 4px;
+            width: 6px;
             background: linear-gradient(180deg, #10b981 0%, #059669 100%);
+            border-radius: 3px;
         }
 
         .education-timeline-item {
             position: relative;
-            padding-left: 80px;
-            padding-bottom: 40px;
+            padding-left: 95px;
+            padding-bottom: 50px;
         }
 
         .education-timeline-item:last-child {
@@ -2058,48 +2177,62 @@
 
         .education-timeline-item .education-timeline-dot {
             position: absolute;
-            left: 18px;
-            width: 28px;
-            height: 28px;
+            left: 15px;
+            width: 36px;
+            height: 36px;
             background: #10b981;
             border-radius: 50%;
-            border: 5px solid white;
-            box-shadow: 0 0 0 4px #a7f3d0;
+            border: 6px solid white;
+            box-shadow: 0 0 0 5px #a7f3d0, 0 4px 12px rgba(16, 185, 129, 0.3);
             z-index: 1;
+            transition: all 0.3s ease;
+        }
+
+        .education-timeline-item:hover .education-timeline-dot {
+            transform: scale(1.1);
+            box-shadow: 0 0 0 6px #a7f3d0, 0 6px 16px rgba(16, 185, 129, 0.4);
         }
 
         .education-timeline-item.highlight .education-timeline-dot {
             background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-            box-shadow: 0 0 0 4px #fde68a;
+            box-shadow: 0 0 0 5px #fde68a, 0 4px 12px rgba(245, 158, 11, 0.4);
             animation: pulse 2s infinite;
         }
 
         @keyframes pulse {
             0%, 100% {
-                box-shadow: 0 0 0 4px #fde68a;
+                box-shadow: 0 0 0 5px #fde68a, 0 4px 12px rgba(245, 158, 11, 0.4);
             }
             50% {
-                box-shadow: 0 0 0 8px rgba(253, 230, 138, 0.5);
+                box-shadow: 0 0 0 8px rgba(253, 230, 138, 0.5), 0 6px 20px rgba(245, 158, 11, 0.5);
             }
         }
 
         .education-timeline-item .education-timeline-period {
             position: absolute;
-            left: 60px;
-            top: -10px;
+            left: 70px;
+            top: -5px;
             background: #047857;
             color: white;
-            padding: 8px 16px;
-            border-radius: 16px;
-            font-size: 0.85rem;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 1rem;
             font-weight: 700;
             white-space: nowrap;
-            box-shadow: 0 2px 8px rgba(4, 120, 87, 0.3);
+            box-shadow: 0 3px 12px rgba(4, 120, 87, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .education-timeline-item:hover .education-timeline-period {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 16px rgba(4, 120, 87, 0.5);
         }
 
         .education-timeline-item.highlight .education-timeline-period {
             background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-            box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4);
+            box-shadow: 0 3px 12px rgba(245, 158, 11, 0.5);
+            font-size: 1.05rem;
+            padding: 12px 24px;
         }
 
         .education-timeline-item .education-timeline-content {
@@ -2107,22 +2240,58 @@
             border-radius: 16px;
             padding: 25px;
             margin-top: 50px;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            border: 2px solid #f0f0f0;
+            transition: all 0.3s ease;
+        }
+
+        .education-timeline-item:hover .education-timeline-content {
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px);
         }
 
         .education-timeline-item.highlight .education-timeline-content {
-            border: 2px solid #fbbf24;
-            box-shadow: 0 4px 20px rgba(245, 158, 11, 0.2);
+            border: 3px solid #fbbf24;
+            box-shadow: 0 6px 24px rgba(245, 158, 11, 0.25);
+        }
+
+        .education-timeline-item.highlight:hover .education-timeline-content {
+            box-shadow: 0 8px 32px rgba(245, 158, 11, 0.3);
         }
 
         .education-timeline-item .education-timeline-content h4 {
             color: #047857;
             margin-bottom: 12px;
-            font-size: 1.1rem;
+            font-size: 1.15rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .education-timeline-item.highlight .education-timeline-content h4 {
             color: #d97706;
+        }
+
+        .timeline-summary {
+            color: #047857;
+            font-weight: 600;
+            margin: 10px 0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .timeline-toggle {
+            display: inline-block;
+            margin-left: auto;
+            transition: transform 0.3s ease;
+            font-size: 1.2rem;
+            color: #10b981;
+        }
+
+        .timeline-toggle.active {
+            transform: rotate(180deg);
         }
 
         .timeline-detail {
@@ -2130,6 +2299,15 @@
             border-radius: 12px;
             padding: 15px 20px;
             margin-top: 15px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease, margin 0.4s ease;
+        }
+
+        .timeline-detail.active {
+            max-height: 1000px;
+            margin-top: 15px;
+            padding: 15px 20px;
         }
 
         .timeline-detail.warning {
@@ -2248,23 +2426,36 @@
         /* レスポンシブ対応 */
         @media (max-width: 768px) {
             .education-timeline::before {
-                left: 15px;
+                left: 18px;
+                width: 4px;
             }
 
             .education-timeline-item {
-                padding-left: 50px;
+                padding-left: 60px;
+                padding-bottom: 35px;
             }
 
             .education-timeline-item .education-timeline-dot {
-                left: 6px;
-                width: 20px;
-                height: 20px;
+                left: 9px;
+                width: 24px;
+                height: 24px;
+                border: 4px solid white;
+                box-shadow: 0 0 0 4px #a7f3d0, 0 2px 8px rgba(16, 185, 129, 0.3);
             }
 
             .education-timeline-item .education-timeline-period {
-                left: 35px;
-                font-size: 0.75rem;
-                padding: 6px 12px;
+                left: 45px;
+                font-size: 0.85rem;
+                padding: 8px 14px;
+                top: -3px;
+            }
+
+            .education-timeline-item .education-timeline-content h4 {
+                font-size: 1rem;
+            }
+
+            .timeline-summary {
+                font-size: 0.9rem;
             }
 
             .comparison-box {
@@ -2342,12 +2533,15 @@
                     <div class="education-timeline-dot"></div>
                     <div class="education-timeline-period">2020年</div>
                     <div class="education-timeline-content">
-                        <h4>🏫 小学校でプログラミング教育が必修化</h4>
-                        <p style="color: #6b7280; margin: 10px 0;">
-                            <strong>GIGAスクール構想</strong>により、児童1人1台のタブレット端末が配布されました。<br>
-                            授業では簡易的なPC操作、タイピング、Scratchなどのビジュアルプログラミングを学びます。
-                        </p>
+                        <h4 class="timeline-title">
+                            🏫 小学校でプログラミング教育が必修化
+                            <span class="timeline-toggle">▼</span>
+                        </h4>
+                        <p class="timeline-summary">1人1台タブレット配布、Scratchなどでビジュアルプログラミングの基礎を学習</p>
                         <div class="timeline-detail">
+                            <p style="color: #6b7280; margin-bottom: 10px;">
+                                <strong>GIGAスクール構想</strong>により、児童1人1台のタブレット端末が配布されました。授業では簡易的なPC操作、タイピング、Scratchなどのビジュアルプログラミングを学びます。
+                            </p>
                             <div class="timeline-detail-label">学習内容</div>
                             <ul style="margin-left: 20px; color: #6b7280;">
                                 <li>基本的なタブレット/PC操作</li>
@@ -2362,12 +2556,15 @@
                     <div class="education-timeline-dot"></div>
                     <div class="education-timeline-period">2021年</div>
                     <div class="education-timeline-content">
-                        <h4>🔧 中学校の技術・家庭科でプログラミングが本格導入</h4>
-                        <p style="color: #6b7280; margin: 10px 0;">
-                            小学校の内容から一歩進み、<strong>座標を使った工作</strong>や<strong>計測・制御のプログラミング</strong>を学びます。<br>
-                            センサーやモーターを使った実践的な課題に取り組みます。
-                        </p>
+                        <h4 class="timeline-title">
+                            🔧 中学校の技術・家庭科でプログラミングが本格導入
+                            <span class="timeline-toggle">▼</span>
+                        </h4>
+                        <p class="timeline-summary">座標・センサー・モーターを使った実践的なプログラミング学習へ</p>
                         <div class="timeline-detail">
+                            <p style="color: #6b7280; margin-bottom: 10px;">
+                                小学校の内容から一歩進み、<strong>座標を使った工作</strong>や<strong>計測・制御のプログラミング</strong>を学びます。センサーやモーターを使った実践的な課題に取り組みます。
+                            </p>
                             <div class="timeline-detail-label">学習内容</div>
                             <ul style="margin-left: 20px; color: #6b7280;">
                                 <li>座標系を使ったプログラミング</li>
@@ -2382,12 +2579,15 @@
                     <div class="education-timeline-dot"></div>
                     <div class="education-timeline-period">2022年</div>
                     <div class="education-timeline-content">
-                        <h4>📖 高校で「情報I」が全員必修科目に</h4>
-                        <p style="color: #6b7280; margin: 10px 0;">
-                            教科書が配布され、プログラミングの<strong>基礎概念を座学で学ぶ</strong>形式になります。<br>
-                            「順次処理」「配列」「変数」などの概念を、主に暗記的に覚える授業が中心です。
-                        </p>
+                        <h4 class="timeline-title">
+                            📖 高校で「情報I」が全員必修科目に
+                            <span class="timeline-toggle">▼</span>
+                        </h4>
+                        <p class="timeline-summary">教科書中心の座学形式。暗記が中心で実践が少ない課題も</p>
                         <div class="timeline-detail warning">
+                            <p style="color: #6b7280; margin-bottom: 10px;">
+                                教科書が配布され、プログラミングの<strong>基礎概念を座学で学ぶ</strong>形式になります。「順次処理」「配列」「変数」などの概念を、主に暗記的に覚える授業が中心です。
+                            </p>
                             <div class="timeline-detail-label warning">⚠️ 高校「情報I」の課題</div>
                             <ul style="margin-left: 20px; color: #92400e;">
                                 <li><strong>教科書ベースの座学中心</strong>：実際に「何かを作る」体験が少ない</li>
@@ -2402,12 +2602,15 @@
                     <div class="education-timeline-dot"></div>
                     <div class="education-timeline-period">2025年1月</div>
                     <div class="education-timeline-content">
-                        <h4>🎓 大学入学共通テストに「情報」が新教科として追加</h4>
-                        <p style="color: #6b7280; margin: 10px 0;">
-                            国語・数学・英語と同じく、<strong>大学進学を考える上で避けて通れない科目</strong>になりました。<br>
-                            プログラミング的思考、データ活用、情報社会の問題解決が出題範囲です。
-                        </p>
+                        <h4 class="timeline-title">
+                            🎓 大学入学共通テストに「情報」が新教科として追加
+                            <span class="timeline-toggle">▼</span>
+                        </h4>
+                        <p class="timeline-summary">国語・数学・英語と並ぶ必須科目に。早期学習で大きなアドバンテージ</p>
                         <div class="timeline-detail highlight">
+                            <p style="color: #6b7280; margin-bottom: 10px;">
+                                国語・数学・英語と同じく、<strong>大学進学を考える上で避けて通れない科目</strong>になりました。プログラミング的思考、データ活用、情報社会の問題解決が出題範囲です。
+                            </p>
                             <div class="timeline-detail-label highlight">💡 大学入試での重要性</div>
                             <p style="color: #065f46; margin: 10px 0;">
                                 多くの国公立大学・難関私立大学で「情報」が必須科目に指定されています。<br>
@@ -3643,95 +3846,88 @@
                     style="background: white; padding: 25px; border-radius: 12px; margin-top: 25px; color: #047857; text-align: center;">
                     <strong style="font-size: 1.2rem;">💚 ご家庭で代替することは現実的ではありません</strong>
                 </p>
+
+                <!-- 家庭で教える場合の現実的な負担 -->
+                <div style="background: #fef3c7; padding: 25px; border-radius: 12px; margin-top: 25px; border-left: 4px solid #f59e0b;">
+                    <h4 style="color: #92400e; margin-bottom: 15px; font-size: 1.1rem;">🏠 もし家庭で自力で取り組もうとすると…</h4>
+                    <ul style="color: #78350f; margin-left: 20px; line-height: 1.8;">
+                        <li><strong>教材選び：</strong>「何から始めればいいかわからない」数十種類の教材から適切なものを見極める負担</li>
+                        <li><strong>スケジュール管理：</strong>仕事や家事の合間に定期的に時間を確保し続けるのが難しい</li>
+                        <li><strong>教え方：</strong>つまずいた時に「どうフォローすればいいかわからない」専門知識の壁</li>
+                        <li><strong>モチベーション維持：</strong>親が教えると甘えが出て続かない、同世代の仲間がいないと刺激が少ない</li>
+                    </ul>
+                    <p style="margin-top: 15px; color: #92400e; font-size: 0.95rem;">
+                        → こうした負担を<strong>プロの講師とカリキュラムに任せられる</strong>のが、プログラミング教室の大きなメリットです。
+                    </p>
+                </div>
             </div>
 
-            <!-- 身につく具体的な力 -->
-            <h3 style="color: #047857; margin: 50px 0 25px; font-size: 1.4rem; text-align: center;">🌱 お子様に身につく「具体的な力」
-            </h3>
+            <!-- 身につく力と活かせる場面（統合版） -->
+            <h3 style="color: #047857; margin: 50px 0 25px; font-size: 1.4rem; text-align: center;">🌱 お子様に身につく力と、それが活きる場面</h3>
             <p style="text-align: center; color: #6b7280; margin-bottom: 30px;">
-                プログラミング＝コードではありません。「<strong>考え方</strong>」が身につきます。</p>
+                プログラミング＝コードではありません。「<strong>考え方</strong>」が身につき、人生のあらゆる場面で役立ちます。</p>
 
-            <div class="skills-detailed">
-                <div class="skill-detailed-card">
-                    <h4>🧠 論理的思考力</h4>
-                    <p class="description">「どうしたら思った通りに動くか」を順序立てて考える力</p>
-                    <div class="example">
-                        <div class="example-title">実際の変化</div>
-                        失敗の原因を考え、修正する習慣が身につきます。
-                    </div>
-                </div>
-
-                <div class="skill-detailed-card">
-                    <h4>🔄 試行錯誤する力</h4>
-                    <p class="description">すぐ答えを教えません。失敗→修正→再挑戦を繰り返します</p>
-                    <div class="example">
-                        <div class="example-title">実際の変化</div>
-                        投げ出さず工夫する姿勢が育ちます。
-                    </div>
-                </div>
-
-                <div class="skill-detailed-card">
-                    <h4>💬 説明する力</h4>
-                    <p class="description">「どうしてそう作ったのか」を言葉にする力（国語力・プレゼン力）</p>
-                    <div class="example">
-                        <div class="example-title">実際の変化</div>
-                        考えを整理して人に伝える練習になります。
-                    </div>
-                </div>
-
-                <div class="skill-detailed-card">
-                    <h4>⏱️ 集中力</h4>
-                    <p class="description">気づいたら1時間以上、前のめりで取り組んでいる子が多数</p>
-                    <div class="example">
-                        <div class="example-title">実際の変化</div>
-                        長時間集中する習慣が身につきます。
-                    </div>
-                </div>
-            </div>
-
-            <!-- 他の習い事との違い -->
-            <h3 style="color: #047857; margin: 50px 0 25px; font-size: 1.4rem; text-align: center;">🆚 他の習い事との決定的な違い
-            </h3>
-
-            <div class="difference-grid">
-                <div class="difference-card">
-                    <div class="category">中学・高校で役立つ</div>
-                    <h4>📚 探究学習</h4>
-                    <div class="vs">
-                        <div class="item">従来の学習<br><br>答えを覚える</div>
-                        <div class="arrow">→</div>
-                        <div class="item" style="background: #ecfdf5;">探究学習<br><br>答えを作る</div>
-                    </div>
-                    <div class="benefit">
-                        ✨ 高校必修の「探究学習」に直結します。
-                    </div>
-                </div>
-
-                <div class="difference-card">
-                    <div class="category">大学入試で活きる</div>
-                    <h4>📝 記述・面接</h4>
-                    <div class="vs">
-                        <div class="item">暗記型<br><br>知識を答える</div>
-                        <div class="arrow">→</div>
-                        <div class="item" style="background: #ecfdf5;">思考型<br><br>考えを説明する</div>
-                    </div>
-                    <div class="benefit">
-                        ✨ 論理的に考え、説明する力は入試で武器になります。
-                    </div>
-                </div>
-
-                <div class="difference-card">
-                    <div class="category">社会に出てから</div>
-                    <h4>💼 仕事での問題解決</h4>
-                    <div class="vs">
-                        <div class="item">指示待ち<br><br>言われたことをやる</div>
-                        <div class="arrow">→</div>
-                        <div class="item" style="background: #ecfdf5;">自律型<br><br>自分で考える</div>
-                    </div>
-                    <div class="benefit">
-                        ✨ 問題解決力はどんな職業でも活きます。
-                    </div>
-                </div>
+            <div class="skills-integration-table">
+                <table class="skills-table">
+                    <thead>
+                        <tr>
+                            <th>身につく力</th>
+                            <th>具体的な内容</th>
+                            <th>他の習い事との違い</th>
+                            <th>将来役立つ場面</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="skill-name" data-label="身につく力">🧠 論理的思考力</td>
+                            <td class="skill-desc" data-label="具体的な内容">
+                                「どうしたら思った通りに動くか」を順序立てて考える力
+                                <span class="change-note">→ 失敗の原因を考え、修正する習慣が身につきます</span>
+                            </td>
+                            <td data-label="他の習い事との違い"><div class="skill-unique"><strong>答えを作る</strong>学び<br>（暗記ではなく）</div></td>
+                            <td class="skill-future" data-label="将来役立つ場面">
+                                📚 <strong>高校の探究学習</strong><br>
+                                📝 <strong>大学入試の記述・面接</strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="skill-name" data-label="身につく力">🔄 試行錯誤する力</td>
+                            <td class="skill-desc" data-label="具体的な内容">
+                                すぐ答えを教えません。失敗→修正→再挑戦を繰り返します
+                                <span class="change-note">→ 投げ出さず工夫する姿勢が育ちます</span>
+                            </td>
+                            <td data-label="他の習い事との違い"><div class="skill-unique"><strong>自分で考える</strong>習慣<br>（指示待ちにならない）</div></td>
+                            <td class="skill-future" data-label="将来役立つ場面">
+                                💼 <strong>仕事での問題解決</strong><br>
+                                🌟 <strong>困難に立ち向かう力</strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="skill-name" data-label="身につく力">💬 説明する力</td>
+                            <td class="skill-desc" data-label="具体的な内容">
+                                「どうしてそう作ったのか」を言葉にする力（国語力・プレゼン力）
+                                <span class="change-note">→ 考えを整理して人に伝える練習になります</span>
+                            </td>
+                            <td data-label="他の習い事との違い"><div class="skill-unique"><strong>考えを説明する</strong>力<br>（知識を答えるだけでなく）</div></td>
+                            <td class="skill-future" data-label="将来役立つ場面">
+                                📝 <strong>入試の面接・小論文</strong><br>
+                                💼 <strong>プレゼンテーション</strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="skill-name" data-label="身につく力">⏱️ 集中力</td>
+                            <td class="skill-desc" data-label="具体的な内容">
+                                気づいたら1時間以上、前のめりで取り組んでいる子が多数
+                                <span class="change-note">→ 長時間集中する習慣が身につきます</span>
+                            </td>
+                            <td data-label="他の習い事との違い"><div class="skill-unique"><strong>夢中になれる</strong>体験<br>（受け身ではなく）</div></td>
+                            <td class="skill-future" data-label="将来役立つ場面">
+                                📚 <strong>学習全般</strong><br>
+                                🎯 <strong>目標達成のための粘り強さ</strong>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
 
             <p
@@ -3855,30 +4051,36 @@
 
         <!-- まとめセクション -->
         <section class="summary-section">
-            <h2>📌 まとめ：上手に伝える4つのコツ</h2>
-            <p>この4つを意識するだけで、伝わり方が大きく変わります！</p>
+            <h2>🌟 プログラミング教育、始めるなら"今"がベストタイミング</h2>
+            <p>ここまでお読みいただき、ありがとうございました。最後に大切なポイントを3つお伝えします。</p>
             <div class="summary-cards">
                 <div class="summary-card">
                     <div class="num">1</div>
-                    <h4>誰が？何を？</h4>
-                    <p>対象や目的を<br>はっきり伝える</p>
+                    <h4>必修化で「学ぶ」から<br>「身につける」時代へ</h4>
+                    <p>2020年から小学校で必修化。ただ授業を受けるだけでなく、<strong>継続的に触れることで考える力が定着</strong>します。</p>
                 </div>
                 <div class="summary-card">
                     <div class="num">2</div>
-                    <h4>いつ？どこで？</h4>
-                    <p>時間や場所の<br>条件を入れる</p>
+                    <h4>論理的思考は<br>全教科の土台になる</h4>
+                    <p>プログラミングで育つ「筋道を立てて考える力」は、算数・国語・理科すべてで役立つ<strong>一生モノのスキル</strong>です。</p>
                 </div>
                 <div class="summary-card">
                     <div class="num">3</div>
-                    <h4>どれくらい？</h4>
-                    <p>量や予算などの<br>数字を入れる</p>
-                </div>
-                <div class="summary-card">
-                    <div class="num">4</div>
-                    <h4>もし〜なら？</h4>
-                    <p>例外や条件も<br>先に伝える</p>
+                    <h4>早く始めるほど<br>楽しく続けられる</h4>
+                    <p>小学校低学年は柔軟に吸収できる黄金期。<strong>「難しそう」と感じる前に、遊び感覚で始める</strong>のがおすすめです。</p>
                 </div>
             </div>
+            <p style="margin-top: 30px; font-size: 1.1rem; line-height: 1.8;">
+                「うちの子にできるかな？」と不安な方も大丈夫。<br>
+                多くのスクールでは<strong>無料体験</strong>を実施しています。<br>
+                <br>
+                まずはお子さんと一緒に体験してみて、<br>
+                <strong>「楽しい！」と感じたら、それが始めどき</strong>です。<br>
+                <br>
+                <span style="background: rgba(255,255,255,0.3); padding: 8px 16px; border-radius: 8px; display: inline-block; margin-top: 10px;">
+                    💡 一歩踏み出す勇気が、お子さんの未来を変えるかもしれません。
+                </span>
+            </p>
         </section>
     </main>
 
@@ -3926,6 +4128,19 @@
                 parentContent.querySelectorAll('.future-content-l2').forEach(c => c.classList.remove('active'));
                 btn.classList.add('active');
                 document.getElementById(btn.dataset.level2).classList.add('active');
+            });
+        });
+
+        // 教育タイムライン：アコーディオン機能
+        document.querySelectorAll('.education-timeline-item .timeline-title').forEach(title => {
+            title.addEventListener('click', () => {
+                const content = title.closest('.education-timeline-content');
+                const detail = content.querySelector('.timeline-detail');
+                const toggle = title.querySelector('.timeline-toggle');
+
+                // トグル状態を切り替え
+                detail.classList.toggle('active');
+                toggle.classList.toggle('active');
             });
         });
     </script>

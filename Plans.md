@@ -78,6 +78,16 @@
   - body内の全style属性をclass属性に変換
   - コンポーネントクラス（card-success, card-error等）を導入
 
+### Phase 3.5: UX改善 — アコーディオン実装とセクション間問いかけ追加
+> **優先度: 高** — ユーザー体験向上
+
+- [x] `cc:DONE` AI時代セクションの比較カードをアコーディオン化 (2026-02-16)
+  - 依頼内容: 「❌ あいまいな指示」と「✅ 具体的な指示」の比較をクリックで展開する折りたたみ形式にする
+  - 実施内容: .ai-accordionクラス追加、ボタンクリックでopen/close切替、矢印回転アニメーション
+- [x] `cc:DONE` セクション間の導入説明文を復活 (2026-02-16)
+  - 依頼内容: 「プログラミングを学ぶ方法」と「保護者様へ」の間に問いかけボックスを挿入
+  - 実施内容: 「でもその前に…プログラミング教室の価値ってなんでしょうか？」ボックスを追加
+
 ### Phase 4: 構成・UX改善
 > **優先度: 中**
 
@@ -106,6 +116,15 @@
   - 削除箇所: .education-timeline-item:hover .education-timeline-period
   - 削除箇所: .education-timeline-item:hover .education-timeline-content
   - 削除箇所: .education-timeline-item.highlight:hover .education-timeline-content
+- [x] `cc:DONE` タイムライン年号ラベルと見出しの重なり問題を修正 — 完了 (2026-02-15)
+  - 対象1: 「半年〜1年続けたお子様の変化」タイムライン (.timeline-item)
+    - `.timeline-period`: position:absolute → display:inline-block + margin-left
+    - `.timeline-content`: margin-top削減、margin-left追加
+    - レスポンシブ: margin-left 60px → 35px
+  - 対象2: 「プログラミング教育の制度化タイムライン」 (.education-timeline-item)
+    - `.education-timeline-period`: position:absolute → display:inline-block + margin-left
+    - `.education-timeline-content`: margin-top削減、margin-left追加
+    - レスポンシブ: margin-left 70px → 45px
 
 ---
 

@@ -849,6 +849,56 @@
             font-weight: bold;
         }
 
+        /* AI Accordion Styles */
+        .ai-accordion {
+            margin-top: 15px;
+        }
+
+        .ai-accordion-item {
+            margin-bottom: 12px;
+        }
+
+        .ai-accordion-btn {
+            width: 100%;
+            text-align: left;
+            padding: 16px 20px;
+            background: rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .ai-accordion-btn:hover {
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        .ai-accordion-arrow {
+            transition: transform 0.3s ease;
+            font-size: 0.8rem;
+        }
+
+        .ai-accordion-item.open .ai-accordion-arrow {
+            transform: rotate(180deg);
+        }
+
+        .ai-accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .ai-accordion-item.open .ai-accordion-content {
+            max-height: 2000px;
+            padding-top: 12px;
+        }
+
         .minecraft-section {
             background: linear-gradient(135deg, #5D8C3E 0%, #4a7a2e 100%);
             border-radius: 24px;
@@ -1842,7 +1892,176 @@
             margin: 40px 0;
         }
 
+        .method-card {
+            background: white;
+            border-radius: 20px;
+            padding: 0;
+            border: 3px solid #e5e7eb;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
 
+        .method-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .method-card.recommended {
+            border-color: #10b981;
+            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.2);
+        }
+
+        .recommended-badge {
+            position: absolute;
+            top: 20px;
+            right: -35px;
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: white;
+            padding: 8px 45px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            transform: rotate(45deg);
+            box-shadow: 0 4px 10px rgba(245, 158, 11, 0.4);
+            z-index: 10;
+        }
+
+        .method-header {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        .method-card.recommended .method-header {
+            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+            border-bottom-color: #10b981;
+        }
+
+        .method-icon {
+            font-size: 2.5rem;
+        }
+
+        .method-header h3 {
+            flex: 1;
+            font-size: 1.2rem;
+            color: #1e293b;
+            margin: 0;
+        }
+
+        .cost-badge {
+            background: #64748b;
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .cost-badge.highlight {
+            background: #10b981;
+        }
+
+        .method-body {
+            padding: 25px;
+        }
+
+        .method-body h4 {
+            color: #475569;
+            margin: 20px 0 12px;
+            font-size: 1rem;
+        }
+
+        .method-steps {
+            list-style: none;
+            margin: 15px 0;
+        }
+
+        .method-steps li {
+            padding: 8px 0 8px 30px;
+            position: relative;
+            color: #64748b;
+        }
+
+        .method-steps li::before {
+            content: '▸';
+            position: absolute;
+            left: 8px;
+            color: #10b981;
+            font-weight: bold;
+        }
+
+        .method-pros-cons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .pros,
+        .cons {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 15px;
+        }
+
+        .pros h5 {
+            color: #059669;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .cons h5 {
+            color: #dc2626;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .pros ul,
+        .cons ul {
+            list-style: none;
+            font-size: 0.85rem;
+        }
+
+        .pros li,
+        .cons li {
+            padding: 5px 0;
+            color: #64748b;
+        }
+
+        .method-reality {
+            background: #fff7ed;
+            border-left: 4px solid #f59e0b;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: #78350f;
+        }
+
+        .method-highlight {
+            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+            border: 2px solid #10b981;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .method-highlight h5 {
+            color: #047857;
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+
+        .method-highlight p {
+            margin-bottom: 15px;
+            color: #1e293b;
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
 
         .methods-summary {
             margin-top: 50px;
@@ -1932,6 +2151,9 @@
                 grid-template-columns: 1fr;
             }
 
+            .method-pros-cons {
+                grid-template-columns: 1fr;
+            }
 
             .summary-table {
                 font-size: 0.85rem;
@@ -2292,140 +2514,6 @@
                 align-items: flex-start;
             }
         }
-
-        /* ===== ユーティリティクラス ===== */
-        /* テキスト色 */
-        .text-primary { color: #047857; }
-        .text-secondary { color: #6b7280; }
-        .text-success { color: #10b981; }
-        .text-success-mid { color: #059669; }
-        .text-success-dark { color: #065f46; }
-        .text-error { color: #dc2626; }
-        .text-warning { color: #92400e; }
-        .text-warning-dark { color: #78350f; }
-        .text-purple { color: #5b21b6; }
-        .text-purple-dark { color: #4c1d95; }
-        .text-blue { color: #1e40af; }
-        .text-blue-light { color: #3b82f6; }
-        .text-light-green { color: #6ee7b7; }
-        .text-light-yellow { color: #fef3c7; }
-        .text-yellow { color: #fcd34d; }
-        .text-yellow-dark { color: #fbbf24; }
-        .text-purple-accent { color: #6b21a8; }
-        .text-slate-500 { color: #475569; }
-        .text-slate-700 { color: #334155; }
-        .text-white { color: white; }
-
-        /* フォントサイズ */
-        .fs-xs { font-size: 0.85rem; }
-        .fs-sm { font-size: 0.9rem; }
-        .fs-base { font-size: 0.95rem; }
-        .fs-md { font-size: 1rem; }
-        .fs-lg { font-size: 1.05rem; }
-        .fs-xl { font-size: 1.1rem; }
-        .fs-2xl { font-size: 1.15rem; }
-        .fs-3xl { font-size: 1.2rem; }
-        .fs-4xl { font-size: 1.3rem; }
-        .fs-5xl { font-size: 1.4rem; }
-        .fs-6xl { font-size: 1.8rem; }
-
-        /* フォントウェイト */
-        .fw-semibold { font-weight: 600; }
-        .fw-bold { font-weight: 700; }
-
-        /* テキスト整列 */
-        .text-center { text-align: center; }
-
-        /* マージン */
-        .m-0 { margin: 0; }
-        .mb-6 { margin-bottom: 6px; }
-        .mb-8 { margin-bottom: 8px; }
-        .mb-10 { margin-bottom: 10px; }
-        .mb-15 { margin-bottom: 15px; }
-        .mb-20 { margin-bottom: 20px; }
-        .mb-25 { margin-bottom: 25px; }
-        .mb-30 { margin-bottom: 30px; }
-        .mb-40 { margin-bottom: 40px; }
-        .mt-8 { margin-top: 8px; }
-        .mt-10 { margin-top: 10px; }
-        .mt-12 { margin-top: 12px; }
-        .mt-15 { margin-top: 15px; }
-        .mt-20 { margin-top: 20px; }
-        .mt-25 { margin-top: 25px; }
-        .mt-30 { margin-top: 30px; }
-        .mt-35 { margin-top: 35px; }
-        .mt-40 { margin-top: 40px; }
-        .ml-20 { margin-left: 20px; }
-        .my-10 { margin: 10px 0; }
-        .my-25 { margin: 25px 0; }
-        .my-30-20 { margin: 30px 0 20px; }
-        .my-40 { margin: 40px 0; }
-        .my-40-20 { margin: 40px 0 20px; }
-        .my-50-25 { margin: 50px 0 25px; }
-
-        /* パディング */
-        .p-10 { padding: 10px; }
-        .p-12-16 { padding: 12px 16px; }
-        .p-15 { padding: 15px; }
-        .p-16 { padding: 16px; }
-        .p-20 { padding: 20px; }
-        .p-25 { padding: 25px; }
-        .p-30 { padding: 30px; }
-        .px-8-16 { padding: 8px 16px; }
-        .pl-20 { padding-left: 20px; }
-
-        /* ボーダー */
-        .border-l-yellow { border-left-color: #fbbf24; }
-        .rounded-8 { border-radius: 8px; }
-        .rounded-12 { border-radius: 12px; }
-        .rounded-16 { border-radius: 16px; }
-        .border-l-success { border-left: 4px solid #10b981; }
-        .border-l-error { border-left: 4px solid #dc2626; }
-        .border-l-warning { border-left: 4px solid #f59e0b; }
-        .border-l-purple { border-left: 4px solid #8b5cf6; }
-        .border-blue { border: 2px solid #bfdbfe; }
-
-        /* 背景 */
-        .bg-error-light { background: #fef2f2; }
-        .bg-success-light { background: #ecfdf5; }
-        .bg-warning-light { background: #fef3c7; }
-        .bg-white { background: white; }
-        .bg-white-10 { background: rgba(255,255,255,0.1); }
-        .bg-white-30 { background: rgba(255,255,255,0.3); }
-        .bg-gradient-success { background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%); }
-        .bg-gradient-blue { background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); }
-        .bg-gradient-purple { background: linear-gradient(135deg, #ede9fe 0%, #fae8ff 100%); }
-
-        /* レイアウト */
-        .flex-center { display: flex; align-items: center; gap: 10px; }
-        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-        .inline-block { display: inline-block; }
-        .block { display: block; }
-        .relative { position: relative; }
-
-        /* 行間 */
-        .lh-relaxed { line-height: 1.7; }
-        .lh-loose { line-height: 1.8; }
-        .lh-extra-loose { line-height: 1.9; }
-        .lh-double { line-height: 2; }
-
-        /* シャドウ */
-        .shadow-sm { box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        .shadow-md { box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
-        .shadow-lg { box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
-
-        /* その他 */
-        .no-decoration { text-decoration: none; }
-        .opacity-60 { opacity: 0.6; }
-        .img-responsive { max-width: 100%; height: auto; }
-        .border-none { border: none; }
-
-        /* コンポーネントクラス */
-        .card-success { background: #ecfdf5; border-radius: 12px; padding: 16px; border-left: 4px solid #10b981; }
-        .card-error { background: #fef2f2; border-radius: 12px; padding: 16px; border-left: 4px solid #dc2626; }
-        .card-warning { background: #fef3c7; border-radius: 8px; padding: 12px 16px; border-left: 4px solid #f59e0b; }
-        .card-purple { background: linear-gradient(135deg, #ede9fe 0%, #fae8ff 100%); border-radius: 8px; padding: 12px 16px; border-left: 4px solid #8b5cf6; }
-        .list-indented { margin-left: 20px; color: #6b7280; }
     </style>
 </head>
 
@@ -2447,7 +2535,7 @@
                 </p>
             </div>
             <img src="images/thinking.png" alt="考える力のイメージ" class="section-image" loading="lazy">
-            <h3 class="text-primary my-30-20 fs-4xl">🌟 4つの大切な力</h3>
+            <h3 style="color: #047857; margin: 30px 0 20px; font-size: 1.3rem;">🌟 4つの大切な力</h3>
             <div class="skills-grid">
                 <div class="skill-card">
                     <div class="icon">🧩</div>
@@ -2475,8 +2563,8 @@
         <!-- プログラミング教育の制度化タイムライン -->
         <section class="education-timeline-section">
             <h2 class="section-title"><span class="icon">📚</span>プログラミング教育の制度化タイムライン</h2>
-            <p class="text-center text-secondary mb-30 lh-loose">
-                プログラミングは、もはや「特別な習い事」ではなく、<strong class="text-primary">英語や数学と同じ「基礎教科」</strong>になりました。<br>
+            <p style="text-align: center; color: #6b7280; margin-bottom: 30px; line-height: 1.8;">
+                プログラミングは、もはや「特別な習い事」ではなく、<strong style="color: #047857;">英語や数学と同じ「基礎教科」</strong>になりました。<br>
                 小学校→中学校→高校→大学入試と、一貫した教育の流れが確立されています。
             </p>
 
@@ -2491,11 +2579,11 @@
                         </h4>
                         <p class="timeline-summary">1人1台タブレット配布、Scratchなどでビジュアルプログラミングの基礎を学習</p>
                         <div class="timeline-detail">
-                            <p class="text-secondary mb-10">
+                            <p style="color: #6b7280; margin-bottom: 10px;">
                                 <strong>GIGAスクール構想</strong>により、児童1人1台のタブレット端末が配布されました。授業では簡易的なPC操作、タイピング、Scratchなどのビジュアルプログラミングを学びます。
                             </p>
                             <div class="timeline-detail-label">学習内容</div>
-                            <ul class="list-indented">
+                            <ul style="margin-left: 20px; color: #6b7280;">
                                 <li>基本的なタブレット/PC操作</li>
                                 <li>Scratchによるビジュアルプログラミング</li>
                                 <li>順次処理、繰り返し、条件分岐の基礎</li>
@@ -2514,11 +2602,11 @@
                         </h4>
                         <p class="timeline-summary">座標・センサー・モーターを使った実践的なプログラミング学習へ</p>
                         <div class="timeline-detail">
-                            <p class="text-secondary mb-10">
+                            <p style="color: #6b7280; margin-bottom: 10px;">
                                 小学校の内容から一歩進み、<strong>座標を使った工作</strong>や<strong>計測・制御のプログラミング</strong>を学びます。センサーやモーターを使った実践的な課題に取り組みます。
                             </p>
                             <div class="timeline-detail-label">学習内容</div>
-                            <ul class="list-indented">
+                            <ul style="margin-left: 20px; color: #6b7280;">
                                 <li>座標系を使ったプログラミング</li>
                                 <li>センサーとアクチュエータの制御</li>
                                 <li>ネットワークを利用した双方向性のあるコンテンツ</li>
@@ -2537,18 +2625,18 @@
                         </h4>
                         <p class="timeline-summary">教科書中心の座学形式。暗記が中心で実践が少ない課題も</p>
                         <div class="timeline-detail warning">
-                            <p class="text-secondary mb-10">
+                            <p style="color: #6b7280; margin-bottom: 10px;">
                                 教科書が配布され、プログラミングの<strong>基礎概念を座学で学ぶ</strong>形式になります。「順次処理」「配列」「変数」などの概念を、主に暗記的に覚える授業が中心です。
                             </p>
                             <div class="timeline-detail-label warning">⚠️ 高校「情報I」の課題</div>
-                            <ul class="ml-20 text-warning">
+                            <ul style="margin-left: 20px; color: #92400e;">
                                 <li><strong>教科書ベースの座学中心</strong>：実際に「何かを作る」体験が少ない</li>
                                 <li><strong>目的のない学習</strong>：概念を暗記するだけで、定着しにくい</li>
                                 <li><strong>集団教育の限界</strong>：一人ひとりのペースに合わせられず、取り残される子が出やすい</li>
                             </ul>
-                            <div class="mt-12 card-warning">
-                                <p class="fw-bold text-warning mb-6">⚠️ しかし、学校の授業だけでは不十分な現実も…</p>
-                                <ul class="fs-base text-warning-dark pl-20">
+                            <div style="margin-top: 12px; padding: 12px 16px; background: #fef3c7; border-radius: 8px; border-left: 4px solid #f59e0b;">
+                                <p style="font-weight: 700; color: #92400e; margin-bottom: 6px;">⚠️ しかし、学校の授業だけでは不十分な現実も…</p>
+                                <ul style="font-size: 0.95rem; color: #78350f; padding-left: 20px;">
                                     <li>教科書は単語・概念の暗記が中心で「目的のないプログラミング学習」になりがち</li>
                                     <li>40人クラスでの一斉授業では、理解に差がついても個別対応が難しい</li>
                                     <li>スクールでは「作りたいもの」を起点に学ぶため、知識が定着しやすい</li>
@@ -2568,22 +2656,22 @@
                         </h4>
                         <p class="timeline-summary">国語・数学・英語と並ぶ必須科目に。早期学習で大きなアドバンテージ</p>
                         <div class="timeline-detail highlight">
-                            <p class="text-secondary mb-10">
+                            <p style="color: #6b7280; margin-bottom: 10px;">
                                 国語・数学・英語と同じく、<strong>大学進学を考える上で避けて通れない科目</strong>になりました。プログラミング的思考、データ活用、情報社会の問題解決が出題範囲です。
                             </p>
                             <div class="timeline-detail-label highlight">💡 大学入試での重要性</div>
-                            <p class="text-success-dark my-10">
+                            <p style="color: #065f46; margin: 10px 0;">
                                 多くの国公立大学・難関私立大学で「情報」が必須科目に指定されています。<br>
                                 小学生のうちから基礎を固めておくことで、<strong>中学・高校・大学入試で大きなアドバンテージ</strong>になります。
                             </p>
-                            <div class="mt-12 card-purple">
-                                <p class="fw-bold text-purple mb-6">📌 つまり、こういうことです</p>
-                                <p class="fs-base text-purple-dark lh-relaxed">
+                            <div style="margin-top: 12px; padding: 12px 16px; background: linear-gradient(135deg, #ede9fe 0%, #fae8ff 100%); border-radius: 8px; border-left: 4px solid #8b5cf6;">
+                                <p style="font-weight: 700; color: #5b21b6; margin-bottom: 6px;">📌 つまり、こういうことです</p>
+                                <p style="font-size: 0.95rem; color: #4c1d95; line-height: 1.7;">
                                     小学校 → 中学校 → 高校 → <strong>大学入試</strong>と、プログラミング教育は一貫して強化されています。
                                     早い段階から「考え方」を身につけた子は、高校の「情報I」でも余裕を持って取り組め、
                                     大学入試でも大きなアドバンテージになります。
                                 </p>
-                                <p class="fs-md text-purple fw-bold mt-8 text-center">
+                                <p style="font-size: 1rem; color: #5b21b6; font-weight: 700; margin-top: 8px; text-align: center;">
                                     🏃 早く始めるほど、将来の選択肢が広がります
                                 </p>
                             </div>
@@ -2593,30 +2681,30 @@
             </div>
 
             <!-- 画像プレースホルダー：タイムライン全体図 -->
-            <div class="text-center my-40">
+            <div style="text-align: center; margin: 40px 0;">
                 <img src="images/education-timeline.png"
                      alt="プログラミング教育の制度化タイムライン（2020年小学校必修化から2025年大学入試まで）"
                      loading="lazy"
-                     class="img-responsive rounded-12 shadow-md">
+                     style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
             </div>
 
             <!-- スクール学習と教科書学習の違い -->
             <div class="school-vs-textbook">
-                <h3 class="text-primary mb-20 text-center">でも、結局…学校現場の課題はやまもり。</h3>
+                <h3 style="color: #047857; margin-bottom: 20px; text-align: center;">でも、結局…学校現場の課題はやまもり。</h3>
                 <div class="comparison-box">
                     <div class="comparison-item textbook">
                         <div class="comparison-label">📖 高校「情報I」の学習</div>
                         <div class="comparison-content">
                             <div class="comparison-point bad">概念を暗記する</div>
-                            <p class="text-secondary fs-sm">
+                            <p style="color: #6b7280; font-size: 0.9rem;">
                                 「順次処理とは何か」「変数とは何か」を定義として覚える
                             </p>
                             <div class="comparison-point bad">目的がない</div>
-                            <p class="text-secondary fs-sm">
+                            <p style="color: #6b7280; font-size: 0.9rem;">
                                 「何のために使うのか」が見えないまま学ぶ
                             </p>
                             <div class="comparison-point bad">一律のペース</div>
-                            <p class="text-secondary fs-sm">
+                            <p style="color: #6b7280; font-size: 0.9rem;">
                                 理解度に関わらず授業が進む
                             </p>
                         </div>
@@ -2628,15 +2716,15 @@
                         <div class="comparison-label">🎯 本来の理想</div>
                         <div class="comparison-content">
                             <div class="comparison-point good">✅ 作りたいものを起点に学ぶ</div>
-                            <p class="text-secondary fs-sm">
+                            <p style="color: #6b7280; font-size: 0.9rem;">
                                 「ゲームを作りたい」→「じゃあ変数が必要だね」と自然に学ぶ
                             </p>
                             <div class="comparison-point good">✅ 概念が自然と身につく</div>
-                            <p class="text-secondary fs-sm">
+                            <p style="color: #6b7280; font-size: 0.9rem;">
                                 実際に使うから、理解が深く定着する
                             </p>
                             <div class="comparison-point good">✅ 個別のペースで進む</div>
-                            <p class="text-secondary fs-sm">
+                            <p style="color: #6b7280; font-size: 0.9rem;">
                                 一人ひとりの理解度に合わせたサポート
                             </p>
                         </div>
@@ -2645,54 +2733,54 @@
             </div>
 
             <!-- 画像プレースホルダー：スクールvs教科書 -->
-            <div class="text-center my-40">
+            <div style="text-align: center; margin: 40px 0;">
                 <img src="images/school-vs-textbook.png"
                      alt="教科書学習とスクール学習の違い（暗記型vs実践型）"
                      loading="lazy"
-                     class="img-responsive rounded-12 shadow-md">
+                     style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
             </div>
 
             <!-- メッセージボックス：ビフォーアフター形式 -->
             <div class="message-box">
-                <h3 class="text-primary mb-20 flex-center">
-                    <span class="fs-6xl">🌱</span>
+                <h3 style="color: #047857; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                    <span style="font-size: 1.8rem;">🌱</span>
                     「今」始めると、こんなに違う。
                 </h3>
-                <p class="text-success-dark mb-20">同じ授業・同じテストでも、小学生のうちに触れておくだけで体感がまったく変わります。</p>
+                <p style="color: #065f46; margin-bottom: 20px;">同じ授業・同じテストでも、小学生のうちに触れておくだけで体感がまったく変わります。</p>
 
-                <div class="grid-2">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
                     <!-- 中学校 -->
-                    <div class="card-error">
-                        <div class="fw-bold text-error fs-xs mb-6">中学校 ─ 初めて触れる子</div>
-                        <p class="text-secondary fs-sm m-0">基礎から覚えることが多くて、授業についていくのが精一杯</p>
+                    <div style="background: #fef2f2; border-radius: 12px; padding: 16px; border-left: 4px solid #dc2626;">
+                        <div style="font-weight: 700; color: #dc2626; font-size: 0.85rem; margin-bottom: 6px;">中学校 ─ 初めて触れる子</div>
+                        <p style="color: #6b7280; font-size: 0.9rem; margin: 0;">基礎から覚えることが多くて、授業についていくのが精一杯</p>
                     </div>
-                    <div class="card-success">
-                        <div class="fw-bold text-primary fs-xs mb-6">中学校 ─ 小学生から触れていた子</div>
-                        <p class="text-secondary fs-sm m-0">基礎はもうわかるから、応用や制作に集中できる</p>
+                    <div style="background: #ecfdf5; border-radius: 12px; padding: 16px; border-left: 4px solid #10b981;">
+                        <div style="font-weight: 700; color: #047857; font-size: 0.85rem; margin-bottom: 6px;">中学校 ─ 小学生から触れていた子</div>
+                        <p style="color: #6b7280; font-size: 0.9rem; margin: 0;">基礎はもうわかるから、応用や制作に集中できる</p>
                     </div>
 
                     <!-- 高校 -->
-                    <div class="card-error">
-                        <div class="fw-bold text-error fs-xs mb-6">高校「情報I」─ 初めての子</div>
-                        <p class="text-secondary fs-sm m-0">知らない用語を必死に暗記する「苦手科目」に</p>
+                    <div style="background: #fef2f2; border-radius: 12px; padding: 16px; border-left: 4px solid #dc2626;">
+                        <div style="font-weight: 700; color: #dc2626; font-size: 0.85rem; margin-bottom: 6px;">高校「情報I」─ 初めての子</div>
+                        <p style="color: #6b7280; font-size: 0.9rem; margin: 0;">知らない用語を必死に暗記する「苦手科目」に</p>
                     </div>
-                    <div class="card-success">
-                        <div class="fw-bold text-primary fs-xs mb-6">高校「情報I」─ 経験がある子</div>
-                        <p class="text-secondary fs-sm m-0">「あ、これ使ったことある」が連発。理解が早い</p>
+                    <div style="background: #ecfdf5; border-radius: 12px; padding: 16px; border-left: 4px solid #10b981;">
+                        <div style="font-weight: 700; color: #047857; font-size: 0.85rem; margin-bottom: 6px;">高校「情報I」─ 経験がある子</div>
+                        <p style="color: #6b7280; font-size: 0.9rem; margin: 0;">「あ、これ使ったことある」が連発。理解が早い</p>
                     </div>
 
                     <!-- 大学入試 -->
-                    <div class="card-error">
-                        <div class="fw-bold text-error fs-xs mb-6">共通テスト ─ 高校から始めた子</div>
-                        <p class="text-secondary fs-sm m-0">他教科と同時に詰め込み。対策が間に合わないリスク</p>
+                    <div style="background: #fef2f2; border-radius: 12px; padding: 16px; border-left: 4px solid #dc2626;">
+                        <div style="font-weight: 700; color: #dc2626; font-size: 0.85rem; margin-bottom: 6px;">共通テスト ─ 高校から始めた子</div>
+                        <p style="color: #6b7280; font-size: 0.9rem; margin: 0;">他教科と同時に詰め込み。対策が間に合わないリスク</p>
                     </div>
-                    <div class="card-success">
-                        <div class="fw-bold text-primary fs-xs mb-6">共通テスト ─ 積み上げてきた子</div>
-                        <p class="text-secondary fs-sm m-0">情報は得意科目。他教科に勉強時間を回せる</p>
+                    <div style="background: #ecfdf5; border-radius: 12px; padding: 16px; border-left: 4px solid #10b981;">
+                        <div style="font-weight: 700; color: #047857; font-size: 0.85rem; margin-bottom: 6px;">共通テスト ─ 積み上げてきた子</div>
+                        <p style="color: #6b7280; font-size: 0.9rem; margin: 0;">情報は得意科目。他教科に勉強時間を回せる</p>
                     </div>
                 </div>
 
-                <p class="mt-20 text-center text-success-dark fw-semibold">
+                <p style="margin-top: 20px; text-align: center; color: #065f46; font-weight: 600;">
                     遊びの延長で始めた子ほど、あとからラクになる。
                 </p>
             </div>
@@ -2702,7 +2790,7 @@
         <section class="tabs-container">
             <h2 class="section-title"><span class="icon">📊</span>日常生活で練習しよう！悪い伝え方 vs 良い伝え方</h2>
             <img src="images/daily-practice.png" alt="親子で日常生活を通じて学ぶ" class="section-image" loading="lazy">
-            <p class="mb-25 text-secondary">プログラミング的思考は、毎日の生活の中で練習できます。「伝え方」を変えるだけで、相手の理解度がまったく変わります！
+            <p style="margin-bottom: 25px; color: #6b7280;">プログラミング的思考は、毎日の生活の中で練習できます。「伝え方」を変えるだけで、相手の理解度がまったく変わります！
             </p>
             <nav class="tabs-nav">
                 <button class="tab-btn active" data-tab="schedule"><span class="emoji">📅</span>スケジュール</button>
@@ -2712,7 +2800,7 @@
             </nav>
 
             <div class="tab-content active" id="schedule">
-                <h3 class="mb-20 text-primary">📅 お母さんにスケジュールを相談するとき</h3>
+                <h3 style="margin-bottom: 20px; color: #047857;">📅 お母さんにスケジュールを相談するとき</h3>
                 <div class="comparison-grid">
                     <div class="example-card bad">
                         <span class="card-badge">❌ あいまい</span>
@@ -2720,7 +2808,7 @@
                         <div class="example-text">「夏休みの予定、いい感じに決めて」</div>
                         <div class="analysis">
                             <div class="analysis-title">🔍 なぜ伝わらない？</div>
-                            <ul class="list-indented">
+                            <ul style="margin-left: 20px; color: #6b7280;">
                                 <li>「いい感じ」って何？</li>
                                 <li>いつの予定？1日？1週間？</li>
                                 <li>何がしたいの？</li>
@@ -2748,7 +2836,7 @@
                         </div>
                         <div class="analysis">
                             <div class="analysis-title">✨ 伝わるポイント</div>
-                            <ul class="list-indented">
+                            <ul style="margin-left: 20px; color: #6b7280;">
                                 <li>時間を「枠」で分けている</li>
                                 <li>優先順位が番号で明確</li>
                                 <li>各項目に具体的な時間がある</li>
@@ -2769,7 +2857,7 @@
             </div>
 
             <div class="tab-content" id="menu">
-                <h3 class="mb-20 text-primary">🍱 お母さんに夕食のリクエストをするとき</h3>
+                <h3 style="margin-bottom: 20px; color: #047857;">🍱 お母さんに夕食のリクエストをするとき</h3>
                 <div class="comparison-grid">
                     <div class="example-card bad">
                         <span class="card-badge">❌ あいまい</span>
@@ -2777,7 +2865,7 @@
                         <div class="example-text">「なんかおいしいもの食べたい」</div>
                         <div class="analysis">
                             <div class="analysis-title">🔍 なぜ伝わらない？</div>
-                            <ul class="list-indented">
+                            <ul style="margin-left: 20px; color: #6b7280;">
                                 <li>何が食べたいの？</li>
                                 <li>「おいしい」の基準は人それぞれ</li>
                                 <li>和食？洋食？中華？</li>
@@ -2807,7 +2895,7 @@
                         </div>
                         <div class="analysis">
                             <div class="analysis-title">✨ 伝わるポイント</div>
-                            <ul class="list-indented">
+                            <ul style="margin-left: 20px; color: #6b7280;">
                                 <li>人数と好み・制約が明確</li>
                                 <li>「週○回」と頻度を指定</li>
                                 <li>NGだけでなく代替案も提示</li>
@@ -2828,7 +2916,7 @@
             </div>
 
             <div class="tab-content" id="travel">
-                <h3 class="mb-20 text-primary">✈️ 家族で旅行を計画するとき</h3>
+                <h3 style="margin-bottom: 20px; color: #047857;">✈️ 家族で旅行を計画するとき</h3>
                 <div class="comparison-grid">
                     <div class="example-card bad">
                         <span class="card-badge">❌ あいまい</span>
@@ -2836,7 +2924,7 @@
                         <div class="example-text">「どこか楽しいところ行きたい！」</div>
                         <div class="analysis">
                             <div class="analysis-title">🔍 なぜ伝わらない？</div>
-                            <ul class="list-indented">
+                            <ul style="margin-left: 20px; color: #6b7280;">
                                 <li>いつ行くの？</li>
                                 <li>どれくらいの距離？</li>
                                 <li>何がしたいの？</li>
@@ -2870,7 +2958,7 @@
                         </div>
                         <div class="analysis">
                             <div class="analysis-title">✨ 伝わるポイント</div>
-                            <ul class="list-indented">
+                            <ul style="margin-left: 20px; color: #6b7280;">
                                 <li>日程・人数・予算が具体的</li>
                                 <li>やりたいことに優先順位</li>
                                 <li>1日の流れをタイムラインで提示</li>
@@ -2891,7 +2979,7 @@
             </div>
 
             <div class="tab-content" id="shopping">
-                <h3 class="mb-20 text-primary">🛒 おつかいを頼まれたとき</h3>
+                <h3 style="margin-bottom: 20px; color: #047857;">🛒 おつかいを頼まれたとき</h3>
                 <div class="comparison-grid">
                     <div class="example-card bad">
                         <span class="card-badge">❌ あいまい</span>
@@ -2899,7 +2987,7 @@
                         <div class="example-text">「わかった、買ってくる！」<br>（何をいくつ買うか確認せずに出発）</div>
                         <div class="analysis">
                             <div class="analysis-title">🔍 なぜ失敗する？</div>
-                            <ul class="list-indented">
+                            <ul style="margin-left: 20px; color: #6b7280;">
                                 <li>何を買うか忘れる</li>
                                 <li>数がわからない</li>
                                 <li>どのメーカーかわからない</li>
@@ -2931,7 +3019,7 @@
                         </div>
                         <div class="analysis">
                             <div class="analysis-title">✨ 伝わるポイント</div>
-                            <ul class="list-indented">
+                            <ul style="margin-left: 20px; color: #6b7280;">
                                 <li>商品名だけでなくサイズ・メーカーまで確認</li>
                                 <li>予算・場所・持ち物も事前にチェック</li>
                                 <li>売り切れパターンごとに対応策を確認</li>
@@ -2956,7 +3044,7 @@
         <section class="future-section">
             <h2 class="section-title"><span class="icon">🚀</span>将来どんな場面で役に立つ？</h2>
             <img src="images/future.png" alt="プログラミング的思考が活きる将来" class="section-image" loading="lazy">
-            <p class="mb-25 text-secondary">プログラミング的思考は、どんな仕事・どんな生活でも必ず役立ちます。実際のシーンを詳しく見てみましょう！</p>
+            <p style="margin-bottom: 25px; color: #6b7280;">プログラミング的思考は、どんな仕事・どんな生活でも必ず役立ちます。実際のシーンを詳しく見てみましょう！</p>
 
             <div class="future-tabs-level1">
                 <button class="future-tab-l1 active" data-level1="work">💼 お仕事で</button>
@@ -2980,9 +3068,9 @@
                             <div class="task-breakdown">
                                 <h6>🔍 悪い報告の例</h6>
                                 <p
-                                    class="text-error p-15 bg-error-light rounded-8 my-10">
+                                    style="color: #dc2626; padding: 15px; background: #fef2f2; border-radius: 8px; margin: 10px 0;">
                                     「田中さん、なんか調子悪そうです。熱もあるみたいで、ちょっと心配です」</p>
-                                <p class="text-secondary fs-sm">→
+                                <p style="color: #6b7280; font-size: 0.9rem;">→
                                     「なんか」「みたい」「ちょっと」など曖昧な表現ばかり。医師は具体的な状況がわからず、適切な判断ができない。</p>
                             </div>
                             <div class="task-breakdown">
@@ -3028,9 +3116,9 @@
                             <div class="task-breakdown">
                                 <h6>🔍 悪い提案の例</h6>
                                 <p
-                                    class="text-error p-15 bg-error-light rounded-8 my-10">
+                                    style="color: #dc2626; padding: 15px; background: #fef2f2; border-radius: 8px; margin: 10px 0;">
                                     「最近SNSが流行ってるので、なんかイベントやりたいです。たぶん若い人が来てくれると思います。売上も上がるんじゃないですかね」</p>
-                                <p class="text-secondary fs-sm">→ 根拠がない、数字がない、具体性がない。「たぶん」「思います」では説得力ゼロ。
+                                <p style="color: #6b7280; font-size: 0.9rem;">→ 根拠がない、数字がない、具体性がない。「たぶん」「思います」では説得力ゼロ。
                                 </p>
                             </div>
                             <div class="task-breakdown">
@@ -3082,9 +3170,9 @@
                             <div class="task-breakdown">
                                 <h6>🔍 悪い教え方の例</h6>
                                 <p
-                                    class="text-error p-15 bg-error-light rounded-8 my-10">
+                                    style="color: #dc2626; padding: 15px; background: #fef2f2; border-radius: 8px; margin: 10px 0;">
                                     「はい、補助輪外したよ。じゃあ乗ってみて。ペダル漕いで、バランス取って！倒れそうになったらハンドル切ればいいから。大丈夫、怖くないよ！」</p>
-                                <p class="text-secondary fs-sm">→
+                                <p style="color: #6b7280; font-size: 0.9rem;">→
                                     いきなり全部をやらせようとしている。「バランス」「ペダル」「ハンドル」を同時にはできない。子どもは怖くて体が硬くなり、余計に乗れなくなる。</p>
                             </div>
                             <div class="task-breakdown">
@@ -3148,9 +3236,9 @@
                             <div class="task-breakdown">
                                 <h6>🔍 悪い教え方の例</h6>
                                 <p
-                                    class="text-error p-15 bg-error-light rounded-8 my-10">
+                                    style="color: #dc2626; padding: 15px; background: #fef2f2; border-radius: 8px; margin: 10px 0;">
                                     「玉ねぎをいい感じに炒めて、トマト缶入れて煮込んで、塩で味整えといて。火加減はいい感じで。」</p>
-                                <p class="text-secondary fs-sm">→ 「いい感じ」では新人にはわからない。毎回違う味になってしまう。</p>
+                                <p style="color: #6b7280; font-size: 0.9rem;">→ 「いい感じ」では新人にはわからない。毎回違う味になってしまう。</p>
                             </div>
                             <div class="task-breakdown">
                                 <h6>✅ 良い教え方の例（詳細なレシピ）</h6>
@@ -3459,10 +3547,15 @@
                 <p>ChatGPTやClaudeなどのAIは、私たちの「言葉」で動きます。あいまいな指示では、期待した結果が得られません。<br><strong>プログラミング的思考 =
                         AIに正しく伝える力</strong> なのです。</p>
             </div>
-            <h4 class="text-light-green my-30-20 fs-3xl">AIへの指示の違いを詳しく見てみよう</h4>
-            <div class="ai-comparison-detailed">
-                <div class="ai-card-detailed bad-ai">
-                    <h5>❌ あいまいな指示</h5>
+            <h4 style="color: #6ee7b7; margin: 30px 0 20px; font-size: 1.2rem;">AIへの指示の違いを詳しく見てみよう</h4>
+            <div class="ai-accordion">
+                <div class="ai-accordion-item">
+                    <button class="ai-accordion-btn" onclick="this.parentElement.classList.toggle('open')">
+                        ❌ あいまいな指示
+                        <span class="ai-accordion-arrow">▼</span>
+                    </button>
+                    <div class="ai-accordion-content">
+                        <div class="ai-card-detailed bad-ai">
                     <div class="ai-chat-bubble">
                         <span class="prompt-label">ユーザーの入力:</span>「いい感じの自己紹介文作って」
                     </div>
@@ -3474,9 +3567,16 @@
                         ・何を強調したい？<br>
                         → 当たり障りのない無難な文章しか作れない
                     </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="ai-card-detailed good-ai">
-                    <h5>✅ 具体的な指示</h5>
+                <div class="ai-accordion-item">
+                    <button class="ai-accordion-btn" onclick="this.parentElement.classList.toggle('open')">
+                        ✅ 具体的な指示
+                        <span class="ai-accordion-arrow">▼</span>
+                    </button>
+                    <div class="ai-accordion-content">
+                        <div class="ai-card-detailed good-ai">
                     <div class="ai-chat-bubble">
                         <span class="prompt-label">ユーザーの入力:</span>
                         「就活の面接で使う自己紹介文を作ってください。<br><br>
@@ -3512,15 +3612,17 @@
                             <li><strong>NG条件</strong>：避けてほしいこと</li>
                         </ul>
                     </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="ai-point mt-40 border-l-yellow">
-                <h4 class="text-yellow">💡 AIを使いこなすための公式</h4>
-                <p class="fs-xl lh-double">
-                    <strong class="fs-3xl">良い指示 = 目的 + 対象 + 制約 + 素材 + トーン + NG条件</strong><br><br>
+            <div class="ai-point" style="margin-top: 40px; border-left-color: #fbbf24;">
+                <h4 style="color: #fcd34d;">💡 AIを使いこなすための公式</h4>
+                <p style="font-size: 1.1rem; line-height: 2;">
+                    <strong style="font-size: 1.2rem;">良い指示 = 目的 + 対象 + 制約 + 素材 + トーン + NG条件</strong><br><br>
                     この要素を意識するだけで、AIからの回答の質が劇的に向上します。<br>
                     これはまさに「プログラミング的思考」そのもの。<br>
-                    <span class="text-yellow-dark">小学生のうちからこの思考法を身につけておくと、<br>将来AIを自在に使いこなせる大きなアドバンテージになります。</span>
+                    <span style="color: #fbbf24;">小学生のうちからこの思考法を身につけておくと、<br>将来AIを自在に使いこなせる大きなアドバンテージになります。</span>
                 </p>
             </div>
         </section>
@@ -3540,7 +3642,7 @@
                     <p>ブロックを並べるように<br>プログラムを組み立てる！</p>
                 </div>
             </div>
-            <h3 class="text-light-yellow mb-20 fs-4xl relative">✨
+            <h3 style="color: #fef3c7; margin-bottom: 20px; font-size: 1.3rem; position: relative;">✨
                 Minecraftが学習に最適な6つの理由</h3>
             <div class="mc-reasons">
                 <div class="mc-reason-card">
@@ -3574,7 +3676,7 @@
                     <p>世界115カ国以上の学校で採用。教育効果が実証済み</p>
                 </div>
             </div>
-            <h3 class="text-light-yellow fs-4xl relative my-40-20">📚 Minecraftで身につくスキル
+            <h3 style="color: #fef3c7; margin: 40px 0 20px; font-size: 1.3rem; position: relative;">📚 Minecraftで身につくスキル
             </h3>
             <div class="mc-learn-grid">
                 <div class="mc-learn-item">
@@ -3610,15 +3712,15 @@
             </div>
 
             <!-- プログラミング教育の必要性PDF -->
-            <div class="my-40">
+            <div style="margin: 40px 0;">
                 <div
-                    class="bg-white-10 rounded-12 p-10 shadow-lg">
-                    <iframe src="programming-education-necessity.pdf" width="100%" height="600"
-                        class="border-none rounded-8"></iframe>
+                    style="background: rgba(255,255,255,0.1); border-radius: 12px; padding: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                    <iframe src="プログラミング教育の必要性_補足資料多め (1).pdf" width="100%" height="600"
+                        style="border: none; border-radius: 8px;"></iframe>
                 </div>
-                <p class="text-center mt-15">
-                    <a href="programming-education-necessity.pdf" target="_blank"
-                        class="text-light-yellow no-decoration fw-semibold fs-sm">
+                <p style="text-align: center; margin-top: 15px;">
+                    <a href="プログラミング教育の必要性_補足資料多め (1).pdf" target="_blank"
+                        style="color: #fef3c7; text-decoration: none; font-weight: 600; font-size: 0.9rem;">
                         🔗 別ウィンドウで全画面表示
                     </a>
                 </p>
@@ -3628,15 +3730,15 @@
         <!-- 学習方法の比較セクション -->
         <section class="learning-methods-section">
             <h2 class="section-title"><span class="icon">🎯</span>プログラミングを学ぶ方法は？</h2>
-            <p class="text-center text-secondary fs-lg lh-loose mb-40">
-                学び方には複数の選択肢があり、<strong class="text-success-mid">万能な正解はありません</strong>。<br>
-                大切なのは<strong class="text-success">「続けられる環境かどうか」</strong>です。
+            <p style="text-align: center; color: #6b7280; margin-bottom: 40px; font-size: 1.05rem; line-height: 1.8;">
+                学び方には複数の選択肢があり、<strong style="color: #059669;">万能な正解はありません</strong>。<br>
+                大切なのは<strong style="color: #10b981;">「続けられる環境かどうか」</strong>です。
             </p>
 
             <!-- まとめ -->
             <div class="methods-summary">
                 <h3>📊 学習方法の比較</h3>
-                <p class="fs-sm text-secondary mb-20 text-center">
+                <p style="font-size: 0.9rem; color: #6b7280; margin-bottom: 20px; text-align: center;">
                     ※以下は、実際に保護者の方からよく聞く声や、運営現場での傾向をもとに整理した比較です。
                 </p>
                 <div class="summary-table">
@@ -3711,13 +3813,23 @@
 
                 <div class="final-message">
                     <p
-                        class="mt-20 p-20 bg-gradient-success rounded-12 border-l-success">
+                        style="margin-top: 20px; padding: 20px; background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%); border-radius: 12px; border-left: 4px solid #10b981;">
                         <strong>続けられるかどうかが最も重要</strong>です。<br>
                         費用や利便性の詳細については、次の保護者セクションでご紹介します。
                     </p>
                 </div>
             </div>
         </section>
+
+        <!-- セクション間の問いかけ -->
+        <div style="text-align: center; padding: 20px; background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%); border-radius: 16px; margin: 40px 0;">
+            <p style="font-size: 1.1rem; color: #6b7280; margin-bottom: 20px; line-height: 1.8;">
+                でもその前に…
+            </p>
+            <p style="font-size: 1.4rem; font-weight: 600; color: #1f2937; margin: 0;">
+                プログラミング教室の価値ってなんでしょうか？
+            </p>
+        </div>
 
         <section class="parent-section">
             <h2 class="section-title"><span class="icon">👨‍👩‍👧‍👦</span>保護者様へ：プログラミング教室の価値について</h2>
@@ -3734,7 +3846,7 @@
                 <div class="answer-box">
                     <strong>答えは、明確です。</strong><br>
                     プログラミング教室は、ゲームをする場所ではありません。<br>
-                    <strong class="fs-2xl">将来の学びにつながる力</strong>を、今の年齢で自然に育てる場として、<br>
+                    <strong style="font-size: 1.15rem;">将来の学びにつながる力</strong>を、今の年齢で自然に育てる場として、<br>
                     プログラミングが一種、学習ツールやドリルのような形で存在しています。
                 </div>
             </div>
@@ -3742,7 +3854,7 @@
             <!-- 相場理解セクション -->
             <div class="price-comparison-section">
                 <h3>💰 小学生向けプログラミング教室の相場を知っていますか？</h3>
-                <p class="text-warning-dark mb-25">まず、一般的な教室の価格帯を見てみましょう。</p>
+                <p style="color: #78350f; margin-bottom: 25px;">まず、一般的な教室の価格帯を見てみましょう。</p>
 
                 <div class="price-range">
                     <div class="price-box">
@@ -3774,7 +3886,7 @@
                     </ul>
                 </div>
 
-                <p class="bg-white p-20 rounded-12 mt-20 text-warning-dark">
+                <p style="background: white; padding: 20px; border-radius: 12px; margin-top: 20px; color: #78350f;">
                     <strong>💡 ポイント：</strong> 約1万円は<strong>相場のど真ん中</strong>であり、質と価格のバランスが取れた適正価格です。
                 </p>
             </div>
@@ -3784,7 +3896,7 @@
                 <h3>📈 プログラミング教室がご家庭では代替できない理由</h3>
 
                 <div class="comparison-table">
-                    <h4 class="text-primary mb-15 text-center">他の習い事との比較</h4>
+                    <h4 style="color: #047857; margin-bottom: 15px; text-align: center;">他の習い事との比較</h4>
                     <table>
                         <thead>
                             <tr>
@@ -3797,45 +3909,45 @@
                             <tr>
                                 <td><strong>学習塾</strong></td>
                                 <td>正解を覚える</td>
-                                <td class="text-success"><strong>答えが決まっていない問題に取り組む練習</strong></td>
+                                <td style="color: #10b981;"><strong>答えが決まっていない問題に取り組む練習</strong></td>
                             </tr>
                             <tr>
                                 <td><strong>スポーツ</strong></td>
                                 <td>体を鍛える</td>
-                                <td class="text-success"><strong>思考力・問題解決力を鍛える</strong></td>
+                                <td style="color: #10b981;"><strong>思考力・問題解決力を鍛える</strong></td>
                             </tr>
                             <tr>
                                 <td><strong>ピアノ・音楽</strong></td>
                                 <td>技術を積み上げる</td>
-                                <td class="text-success"><strong>考え方の土台を作る</strong></td>
+                                <td style="color: #10b981;"><strong>考え方の土台を作る</strong></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
 
                 <p
-                    class="bg-white p-25 rounded-12 mt-25 text-primary text-center">
-                    <strong class="fs-3xl">💚 ご家庭で代替することは現実的ではありません</strong>
+                    style="background: white; padding: 25px; border-radius: 12px; margin-top: 25px; color: #047857; text-align: center;">
+                    <strong style="font-size: 1.2rem;">💚 ご家庭で代替することは現実的ではありません</strong>
                 </p>
 
                 <!-- 家庭で教える場合の現実的な負担 -->
-                <div class="bg-warning-light p-25 rounded-12 mt-25 border-l-warning">
-                    <h4 class="text-warning mb-15 fs-xl">🏠 もし家庭で自力で取り組もうとすると…</h4>
-                    <ul class="text-warning-dark ml-20 lh-loose">
+                <div style="background: #fef3c7; padding: 25px; border-radius: 12px; margin-top: 25px; border-left: 4px solid #f59e0b;">
+                    <h4 style="color: #92400e; margin-bottom: 15px; font-size: 1.1rem;">🏠 もし家庭で自力で取り組もうとすると…</h4>
+                    <ul style="color: #78350f; margin-left: 20px; line-height: 1.8;">
                         <li><strong>教材選び：</strong>「何から始めればいいかわからない」数十種類の教材から適切なものを見極める負担</li>
                         <li><strong>スケジュール管理：</strong>仕事や家事の合間に定期的に時間を確保し続けるのが難しい</li>
                         <li><strong>教え方：</strong>つまずいた時に「どうフォローすればいいかわからない」専門知識の壁</li>
                         <li><strong>モチベーション維持：</strong>親が教えると甘えが出て続かない、同世代の仲間がいないと刺激が少ない</li>
                     </ul>
-                    <p class="mt-15 text-warning fs-base">
+                    <p style="margin-top: 15px; color: #92400e; font-size: 0.95rem;">
                         → こうした負担を<strong>プロの講師とカリキュラムに任せられる</strong>のが、プログラミング教室の大きなメリットです。
                     </p>
                 </div>
             </div>
 
             <!-- 身につく力と活かせる場面（統合版） -->
-            <h3 class="text-primary my-50-25 fs-5xl text-center">🌱 お子様に身につく力と、それが活きる場面</h3>
-            <p class="text-center text-secondary mb-30">
+            <h3 style="color: #047857; margin: 50px 0 25px; font-size: 1.4rem; text-align: center;">🌱 お子様に身につく力と、それが活きる場面</h3>
+            <p style="text-align: center; color: #6b7280; margin-bottom: 30px;">
                 プログラミング＝コードではありません。「<strong>考え方</strong>」が身につき、人生のあらゆる場面で役立ちます。</p>
 
             <div class="skills-integration-table">
@@ -3902,10 +4014,10 @@
             </div>
 
             <p
-                class="bg-gradient-blue p-30 rounded-16 mt-30 text-center border-blue">
-                <strong class="text-blue fs-4xl">「将来プログラマーになるため」ではありません</strong><br>
-                <span class="mt-15 block lh-loose text-slate-500">
-                    <strong class="text-blue">「どんな道に進んでも必要な土台作り」</strong>です。<br>
+                style="background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); padding: 30px; border-radius: 16px; margin-top: 30px; text-align: center; border: 2px solid #bfdbfe;">
+                <strong style="color: #1e40af; font-size: 1.3rem;">「将来プログラマーになるため」ではありません</strong><br>
+                <span style="color: #475569; margin-top: 15px; display: block; line-height: 1.8;">
+                    <strong style="color: #1e40af;">「どんな道に進んでも必要な土台作り」</strong>です。<br>
                     医者、弁護士、教師、デザイナー、起業家…どの道を選んでも、<br>
                     論理的に考え、問題を解決する力は必ず役に立ちます。
                 </span>
@@ -3914,7 +4026,7 @@
             <!-- 継続した先の子どもの姿 -->
             <div class="timeline-section">
                 <h3>⏰ 半年〜1年続けたお子様の変化</h3>
-                <p class="text-purple-accent mb-30">実際に継続している生徒さんには、こんな変化が見られます</p>
+                <p style="color: #6b21a8; margin-bottom: 30px;">実際に継続している生徒さんには、こんな変化が見られます</p>
 
                 <div class="timeline">
                     <div class="timeline-item">
@@ -3963,17 +4075,17 @@
                 </blockquote>
                 <div class="source">出典：文部科学省「小学校プログラミング教育の手引（第三版）」</div>
 
-                <div class="my-25">
-                    <p class="mb-15 fw-semibold text-center text-slate-700">📄
+                <div style="margin: 25px 0;">
+                    <p style="color: #334155; margin-bottom: 15px; font-weight: 600; text-align: center;">📄
                         参考資料（文部科学省PDF）</p>
                     <div
-                        class="bg-white rounded-12 p-10 shadow-sm">
-                        <iframe src="mext-programming-guide.pdf" width="100%" height="600"
-                            class="border-none rounded-8"></iframe>
+                        style="background: white; border-radius: 12px; padding: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                        <iframe src="1417094_003.pdf" width="100%" height="600"
+                            style="border: none; border-radius: 8px;"></iframe>
                     </div>
-                    <p class="text-center mt-15">
-                        <a href="mext-programming-guide.pdf" target="_blank"
-                            class="text-blue-light no-decoration fw-semibold fs-sm">
+                    <p style="text-align: center; margin-top: 15px;">
+                        <a href="1417094_003.pdf" target="_blank"
+                            style="color: #3b82f6; text-decoration: none; font-weight: 600; font-size: 0.9rem;">
                             🔗 別ウィンドウで全画面表示
                         </a>
                     </p>
@@ -4012,10 +4124,10 @@
                     </div>
                 </div>
 
-                <p class="mt-35 fs-xl lh-extra-loose">
+                <p style="margin-top: 35px; font-size: 1.1rem; line-height: 1.9;">
                     <strong>プログラミング学習を「楽しい！」と感じるお子様</strong>は、<br>
                     継続することで<strong>「考える力」「粘り強さ」「説明する力」</strong>という<br>
-                    <strong class="fs-3xl">一生モノのスキル</strong>を自然に身につけていきます。
+                    <strong style="font-size: 1.2rem;">一生モノのスキル</strong>を自然に身につけていきます。
                 </p>
             </div>
         </section>
@@ -4041,14 +4153,14 @@
                     <p>小学校低学年は柔軟に吸収できる黄金期。<strong>「難しそう」と感じる前に、遊び感覚で始める</strong>のがおすすめです。</p>
                 </div>
             </div>
-            <p class="mt-30 fs-xl lh-loose">
+            <p style="margin-top: 30px; font-size: 1.1rem; line-height: 1.8;">
                 「うちの子にできるかな？」と不安な方も大丈夫。<br>
                 多くのスクールでは<strong>無料体験</strong>を実施しています。<br>
                 <br>
                 まずはお子さんと一緒に体験してみて、<br>
                 <strong>「楽しい！」と感じたら、それが始めどき</strong>です。<br>
                 <br>
-                <span class="bg-white-30 px-8-16 rounded-8 inline-block mt-10">
+                <span style="background: rgba(255,255,255,0.3); padding: 8px 16px; border-radius: 8px; display: inline-block; margin-top: 10px;">
                     💡 一歩踏み出す勇気が、お子さんの未来を変えるかもしれません。
                 </span>
             </p>
@@ -4057,7 +4169,7 @@
 
     <footer>
         <p>🌟 プログラミング的思考は、未来を生きるすべての子どもたちの力になります 🌟</p>
-        <p class="mt-10 opacity-60">考える力を育てよう！プログラミング的思考入門ガイド</p>
+        <p style="margin-top: 10px; opacity: 0.6;">考える力を育てよう！プログラミング的思考入門ガイド</p>
     </footer>
 
     <script>

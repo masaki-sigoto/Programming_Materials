@@ -28,14 +28,15 @@
   - 2022年: 高校で「情報I」必修化（教科書配布、座学中心）
   - 2025年1月: 大学入学共通テストに「情報」追加
   - 配置場所: 「プログラミング的思考とは」の直後（L2042の後）
-- [ ] `cc:TODO` 高校「情報I」の課題を指摘するコンテンツ追加
+- [x] `cc:DONE` 高校「情報I」の課題を指摘するコンテンツ追加 (2026-02-15)
   - 教科書は単語・概念の暗記が中心で「目的のないプログラミング学習」になりがち
   - 集団教育の限界（取り残される子が多い傾向）
   - スクールでは「作りたいもの」を起点に学ぶため定着しやすい
-- [ ] `cc:TODO` 「大学入試で情報が必須になった」ことの訴求ストーリー
+  - 実装箇所: タイムライン「2022年 高校で情報I必修化」の.timeline-detail内に黄色のボックスを追加
+- [x] `cc:DONE` 「大学入試で情報が必須になった」ことの訴求ストーリー (2026-02-15)
   - 小学校→中学校→高校→大学入試の一貫したストーリーライン
   - 「早期に始めるほど有利」というメッセージ
-  - 保護者セクション内の適切な位置に配置
+  - 実装箇所: タイムライン「2025年1月 大学入学共通テスト」の.timeline-detail内に紫のグラデーションボックスを追加
 
 ### Phase 2: コンテンツ整理 — 冗長セクションの圧縮
 > **優先度: 高** — 途中離脱を防ぐ
@@ -48,25 +49,34 @@
   - 両セクションで「投資対効果」「費用」の話が重複
   - 比較表セクションと保護者セクションの相場・ROI部分を統合
   - 実施内容: 学習方法セクションの冗長テキストを圧縮、保護者セクションの各要素を短縮、重複メッセージを削除
-- [ ] `cc:TODO` 学習方法の4カード比較（独学/オンライン教材/通学型/オンラインスクール）の扱い
-  - 現在CSSは定義されているがHTMLのカード部分が削除済み → 比較表のみ残存
-  - 不要CSSの削除 or カードの復活を検討
+- [x] `cc:DONE` 学習方法の4カード比較 — method-card系CSS149行削除で解決 (2026-02-15)
+  - HTMLカードは既に削除されていたため、不要CSSを削除して整理完了
+
+### Phase 2.5: レイアウト最適化 — 16:10画面対応
+> **優先度: 最高** — 1セクション1画面に収める
+
+- [x] `cc:DONE` 16:10画面比率（1680x1050）で1セクション1画面に収まるようCSS最適化 (2026-02-15)
+  - ✅ コンテナ幅を拡張（1200px → 1400px）
+  - ✅ セクション間・要素間のマージン/パディングを削減（30px → 20px, 25px → 18px）
+  - ✅ line-heightを調整（1.7 → 1.6, 1.8 → 1.6, 1.9 → 1.6）
+  - ✅ h2/h3のマージンを削減（20px → 15px, 15px → 12px）
+  - ✅ グリッドのgapを狭める（20px → 15px, 25px → 18px）
+  - ✅ 画像サイズを制限（max-height: 300px 追加、max-width: 700px）
+  - ✅ フォントサイズの微調整（h2: 1.8rem → 1.7rem, h3等も縮小）
+  - ✅ heroセクションのパディング削減（60px → 45px）
+  - ✅ 全カード・セクションのパディング統一削減
+  - ✅ レスポンシブデザイン維持（768px以下も調整）
 
 ### Phase 3: ビジュアル改善
 > **優先度: 高** — 文字が多く途中で疲れる問題への対策
 
-- [ ] `cc:TODO` セクション間に画像を挿入する提案・実装
-  - Hero下: 子どもがパソコンに向かうイメージ画像
-  - 日常生活セクション: 親子のイラスト的画像
-  - AI時代セクション: AI関連のビジュアル
-  - Minecraftセクション: 既存images/minecraft-learning.pngの活用確認
-  - 保護者セクション: 安心感のあるファミリー画像
-- [ ] `cc:TODO` 既存の images/ フォルダ内画像の活用状況確認
-  - hero-image.png / thinking-illustration.png / minecraft-learning.png / future-skills.png
-  - 現在index.htmlでこれらの画像が使われていない可能性あり
-- [ ] `cc:TODO` インラインスタイルのCSS化（コード品質改善）
-  - body内に `style="..."` が多数散在（約30箇所以上）
-  - classに移行して保守性を向上
+- [x] `cc:DONE` セクション間に画像を挿入 — 7箇所に実装済み (2026-02-15)
+  - Hero / 思考力 / 日常生活 / 将来 / AI時代 / Minecraft / 保護者 の各セクション
+  - images/ フォルダに9枚の画像を配置
+- [x] `cc:DONE` インラインスタイルのCSS化 — 123箇所 → 0箇所 (2026-02-15)
+  - ユーティリティCSSクラス105個を追加
+  - body内の全style属性をclass属性に変換
+  - コンポーネントクラス（card-success, card-error等）を導入
 
 ### Phase 4: 構成・UX改善
 > **優先度: 中**
@@ -83,9 +93,19 @@
 ### Phase 5: 技術的改善
 > **優先度: 低**
 
-- [ ] `cc:TODO` CSSの`mext-quote`のgradientバグ修正（L1537: `100()` → `100%`）
-- [ ] `cc:TODO` PDFファイル名のURL安全化（日本語ファイル名 + スペース + カッコ）
-- [ ] `cc:TODO` 未使用CSS（method-card系）の整理
+- [x] `cc:DONE` CSSの`mext-quote`のgradientバグ修正 — バグ存在せず（既に100%で正しく記述済み） (2026-02-15)
+- [x] `cc:DONE` PDFファイル名のURL安全化 (2026-02-15)
+  - プログラミング教育の必要性_補足資料多め (1).pdf → programming-education-necessity.pdf
+  - 1417094_003.pdf → mext-programming-guide.pdf
+  - index.html内の参照パスも4箇所更新
+- [x] `cc:DONE` 未使用CSS（method-card系）の整理 — 削除完了（149行削減） (2026-02-15)
+  - 削除対象: .method-card, .method-header, .method-body, .method-steps, .method-pros-cons, .method-reality, .method-highlight関連CSS
+  - レスポンシブ版も含めて完全削除
+- [x] `cc:DONE` タイムライン年号ボタンのホバー効果削除（4箇所） — 完了 (2026-02-15)
+  - 削除箇所: .education-timeline-item:hover .education-timeline-dot
+  - 削除箇所: .education-timeline-item:hover .education-timeline-period
+  - 削除箇所: .education-timeline-item:hover .education-timeline-content
+  - 削除箇所: .education-timeline-item.highlight:hover .education-timeline-content
 
 ---
 
